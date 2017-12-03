@@ -49,49 +49,7 @@ def meanValues (df):
 meanValues,medianValues =  meanValues(wineData)
 meanMedianValues = pd.concat([meanValues, medianValues],axis=1)
 meanMedianValues.columns = columnVals
-
-
-plt.scatter('Alcohol','Malic acid',data = wineData)
-plt.scatter('Alcohol','Ash',data = wineData)
-plt.scatter('Alcohol','Alcalinity of ash',data = wineData)
-plt.scatter('Alcohol','Magnesium',data = wineData)
-plt.scatter('Alcohol','Total phenols',data = wineData)
-plt.scatter('Alcohol','Flavanoids',data = wineData)
-plt.scatter('Alcohol','Nonflavanoid phenols',data = wineData)
-plt.scatter('Alcohol','Proanthocyanins',data = wineData)
-plt.scatter('Alcohol','Color intensity',data = wineData)
-plt.scatter('Alcohol','Hue',data = wineData)
-plt.scatter('Alcohol','OD280/OD315 of diluted wines',data = wineData)
-plt.scatter('Alcohol','Proline',data = wineData)
-
-plt.scatter('Malic acid','Alcohol',data = wineData)
-plt.scatter('Malic acid','Ash',data = wineData)
-plt.scatter('Malic acid','Alcalinity of ash',data = wineData)
-plt.scatter('Malic acid','Magnesium',data = wineData)
-plt.scatter('Malic acid','Total phenols',data = wineData)
-plt.scatter('Malic acid','Flavanoids',data = wineData)
-plt.scatter('Malic acid','Nonflavanoid phenols',data = wineData)
-plt.scatter('Malic acid','Proanthocyanins',data = wineData)
-plt.scatter('Malic acid','Color intensity',data = wineData)
-plt.scatter('Malic acid','Hue',data = wineData)
-plt.scatter('Malic acid','OD280/OD315 of diluted wines',data = wineData)
-plt.scatter('Malic acid','Proline',data = wineData)
-
 wineData.describe()
-
-wineData['Alcohol'].corr(wineData['Proline'])
-wineData['Malic acid'].corr(wineData['Proline'])
-wineData['Ash'].corr(wineData['Proline'])
-wineData['Alcalinity of ash'].corr(wineData['Proline'])
-wineData['Magnesium'].corr(wineData['Proline'])
-wineData['Total phenols'].corr(wineData['Proline'])
-wineData['Flavanoids'].corr(wineData['Proline'])
-wineData['Nonflavanoid phenols'].corr(wineData['Proline'])
-wineData['Proanthocyanins'].corr(wineData['Proline'])
-wineData['Color intensity'].corr(wineData['Proline'])
-wineData['Hue'].corr(wineData['Proline'])
-wineData['OD280/OD315 of diluted wines'].corr(wineData['Proline'])
-
 ## Step 2: K Means Clustering
 # Let's build 3 cluster model (k = 3)
 wineCluster = KMeans(n_clusters=3,random_state=100).fit(wineData)
@@ -99,74 +57,7 @@ wineCluster.labels_
 wineData_withClusterlbl = wineData.copy()
 wineData_withClusterlbl['Cluster_Label'] = wineCluster.labels_
 
-# Alcohol
-plt.scatter('Alcohol','Malic acid',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcohol','Ash',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcohol','Alcalinity of ash',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcohol','Magnesium',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcohol','Total phenols',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcohol','Flavanoids',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcohol','Nonflavanoid phenols',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcohol','Proanthocyanins',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcohol','Color intensity',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcohol','Hue',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcohol','OD280/OD315 of diluted wines',data = wineData,c=wineCluster.labels_)
-
-# Malic Acid
-plt.scatter('Malic acid','Alcohol',data = wineData,c=wineCluster.labels_)
-plt.scatter('Malic acid','Ash',data = wineData,c=wineCluster.labels_)
-plt.scatter('Malic acid','Alcalinity of ash',data = wineData,c=wineCluster.labels_)
-plt.scatter('Malic acid','Magnesium',data = wineData,c=wineCluster.labels_)
-plt.scatter('Malic acid','Total phenols',data = wineData,c=wineCluster.labels_)
-plt.scatter('Malic acid','Flavanoids',data = wineData,c=wineCluster.labels_)
-plt.scatter('Malic acid','Nonflavanoid phenols',data = wineData,c=wineCluster.labels_)
-plt.scatter('Malic acid','Proanthocyanins',data = wineData,c=wineCluster.labels_)
-plt.scatter('Malic acid','Color intensity',data = wineData,c=wineCluster.labels_)
-plt.scatter('Malic acid','Hue',data = wineData,c=wineCluster.labels_)
-plt.scatter('Malic acid','OD280/OD315 of diluted wines',data = wineData,c=wineCluster.labels_)
-
-plt.scatter('Ash','Alcohol',data = wineData,c=wineCluster.labels_)
-plt.scatter('Ash','Malic acid',data = wineData,c=wineCluster.labels_)
-plt.scatter('Ash','Alcalinity of ash',data = wineData,c=wineCluster.labels_)
-plt.scatter('Ash','Magnesium',data = wineData,c=wineCluster.labels_)
-plt.scatter('Ash','Total phenols',data = wineData,c=wineCluster.labels_)
-plt.scatter('Ash','Flavanoids',data = wineData,c=wineCluster.labels_)
-plt.scatter('Ash','Nonflavanoid phenols',data = wineData,c=wineCluster.labels_)
-plt.scatter('Ash','Proanthocyanins',data = wineData,c=wineCluster.labels_)
-plt.scatter('Ash','Color intensity',data = wineData,c=wineCluster.labels_)
-plt.scatter('Ash','Hue',data = wineData,c=wineCluster.labels_)
-plt.scatter('Ash','OD280/OD315 of diluted wines',data = wineData,c=wineCluster.labels_)
-
-plt.scatter('Alcalinity of ash','Alcohol',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcalinity of ash','Malic acid',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcalinity of ash','Ash',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcalinity of ash','Magnesium',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcalinity of ash','Total phenols',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcalinity of ash','Flavanoids',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcalinity of ash','Nonflavanoid phenols',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcalinity of ash','Proanthocyanins',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcalinity of ash','Color intensity',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcalinity of ash','Hue',data = wineData,c=wineCluster.labels_)
-plt.scatter('Alcalinity of ash','OD280/OD315 of diluted wines',data = wineData,c=wineCluster.labels_)
-
-plt.scatter('Magnesium','Alcohol',data = wineData,c=wineCluster.labels_)
-plt.scatter('Magnesium','Malic acid',data = wineData,c=wineCluster.labels_)
-plt.scatter('Magnesium','Ash',data = wineData,c=wineCluster.labels_)
-plt.scatter('Magnesium','Alcalinity of ash',data = wineData,c=wineCluster.labels_)
-plt.scatter('Magnesium','Total phenols',data = wineData,c=wineCluster.labels_)
-plt.scatter('Magnesium','Flavanoids',data = wineData,c=wineCluster.labels_)
-plt.scatter('Magnesium','Nonflavanoid phenols',data = wineData,c=wineCluster.labels_)
-plt.scatter('Magnesium','Proanthocyanins',data = wineData,c=wineCluster.labels_)
-plt.scatter('Magnesium','Color intensity',data = wineData,c=wineCluster.labels_)
-plt.scatter('Magnesium','Hue',data = wineData,c=wineCluster.labels_)
-plt.scatter('Magnesium','OD280/OD315 of diluted wines',data = wineData,c=wineCluster.labels_)
-
-
-# In General , all columns seem to be form cluster with Proline column
-
-
 #plt.scatter("Petal.Length","Petal.Width",data=wineData_withClusterlbl, c=wineCluster.labels_)
-
 plt.scatter('Alcohol','Proline',data=wineData_withClusterlbl, c=wineCluster.labels_)
             #data = wineData,c=wineCluster.labels_) # Best
 plt.scatter('Malic acid','Proline',data=wineData_withClusterlbl, c=wineCluster.labels_)  # Good
@@ -184,16 +75,15 @@ plt.scatter('OD280/OD315 of diluted wines','Proline',data=wineData_withClusterlb
 wine_cluster_centers = wineCluster.cluster_centers_
 # euclidean distance between each observation and the centroid of the cluster it belongs to
 wine_cdist_output = np.min(cdist(wineData, wineCluster.cluster_centers_,'euclidean'),axis=1)
-
 # Sum of squared distance for K = 2
-wine_within_cluster_distance = np.sum(wine_cdist_output**2)
+wine_within_cluster_distance = np.sum(wine_cdist_output**2) #2370689 - Twenty three lakh  #218020.48
 
 # Building clusters with k=1 till k=10 and comparing the
 #within cluster distance between each clustering output
 wine_wss = pd.Series([0.0]*10,index = range(1,11))
 for k in range(1,11):
     wineclust = KMeans(n_clusters = k,random_state=100).fit(wineData)
-    wine_cdist_op = np.min(cdist(wineData,wineCluster.cluster_centers_,'euclidean'),axis=1)
+    wine_cdist_op = np.min(cdist(wineData,wineclust.cluster_centers_,'euclidean'),axis=1)
     #np.min(cdist(wineData,wineCluster.cluster_centers_,'euclidean'),axis=1)
     wine_wss[k] = np.sum(wine_cdist_op**2)
 
@@ -201,3 +91,63 @@ print(wine_wss)
 
 # Elbow curve
 plt.plot(wine_wss)
+
+# The elbow is formed at 2 , 3 and 4 We can try with k  = 4
+wine_new_cluster = KMeans(n_clusters=3,random_state=100).fit(wineData)
+wine_new_cluster.labels_
+wine_with_new_clulabel = wineData.copy()
+wine_with_new_clulabel["Cluster_Label"] = wine_new_cluster.labels_
+#print(wine_new_cluster.cluster_centers_[:,1])
+plt.scatter('Alcohol','Proline',c =wine_new_cluster.labels_, data = wineData)
+plt.scatter(wine_new_cluster.cluster_centers_[:,0],wine_new_cluster.cluster_centers_[:,12],
+            c = np.unique(wine_new_cluster.labels_),marker = 's',s = 200)
+
+## Create Dataframe with 2  columns 
+wineTwoCols = pd.concat([wineData['Alcohol'], wineData['Proline']], axis=1)
+
+## Step 2: K Means Clustering
+# Let's build 3 cluster model (k = 3)
+wineTwoColsCluster = KMeans(n_clusters=3,random_state=100).fit(wineTwoCols)
+wineTwoColsCluster.labels_
+wineTwoColsData_withClusterlbl = wineTwoCols.copy()
+wineTwoColsData_withClusterlbl['Cluster_Label'] = wineTwoColsCluster.labels_
+
+#plt.scatter('Alcohol','Proline',c =wine_new_cluster.labels_, data = wineTwoCols)
+#plt.scatter('Alcohol','Proline',data=wineTwoColsData_withClusterlbl, c=wineTwoColsCluster.labels_)
+
+## Step 3&4: Evaluate Clustering and Optimizing Clusters 
+wine_TwoColCluster_centers = wineTwoColsCluster.cluster_centers_
+# euclidean distance between each observation and the centroid of the cluster it belongs to
+wine_TwoCols_cdist_output = np.min(cdist(wineTwoCols, wineTwoColsCluster.cluster_centers_,'euclidean'),axis=1)
+# Sum of squared distance for K = 2
+wine_TwoColswithin_cluster_distance = np.sum(wine_TwoCols_cdist_output**2) #2337923 - Twenty three lakh 37 923
+
+
+
+plt.scatter('Alcohol','Proline',data=wineTwoColsData_withClusterlbl, c=wineTwoColsCluster.labels_)
+plt.scatter(wineTwoColsCluster.cluster_centers_[:,0],wineTwoColsCluster.cluster_centers_[:,1],
+            c = np.unique(wineTwoColsCluster.labels_),marker = 's',s = 200)
+
+
+wineTwoCol_wss = pd.Series([0.0]*10,index = range(1,11))
+for k in range(1,11):
+    wineTwoColsclust = KMeans(n_clusters = k,random_state=100).fit(wineTwoCols)
+    wineTwocols_cdist_op = np.min(cdist(wineTwoCols,wineTwoColsclust.cluster_centers_,'euclidean'),axis=1)
+    #np.min(cdist(wineData,wineCluster.cluster_centers_,'euclidean'),axis=1)
+    wineTwoCol_wss[k] = np.sum(wineTwocols_cdist_op**2)
+
+print(wineTwoCol_wss)
+
+# Elbow curve
+plt.plot(wineTwoCol_wss)
+
+
+## Step 2: K Means Clustering
+# Let's build 3 cluster model (k = 3)
+wineTwoColsCluster = KMeans(n_clusters=2,random_state=100).fit(wineTwoCols)
+wineTwoColsCluster.labels_
+wineTwoColsData_withClusterlbl = wineTwoCols.copy()
+wineTwoColsData_withClusterlbl['Cluster_Label'] = wineTwoColsCluster.labels_
+
+
+
